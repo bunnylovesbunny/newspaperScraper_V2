@@ -1,0 +1,14 @@
+{
+  "bbc": {
+    "rss": "http://feeds.bbci.co.uk/news/rss.xml",
+    "link": "http://www.bbc.com/"
+  },
+  "thedailystar": {
+    "rss": "https://www.thedailystar.net/top-news/rss.xml",
+    "link": "http://www.breitbart.com/"
+  },
+  "banglatribune": {
+    "rss": "https://en.banglatribune.com/feed/",
+    "link": "http://edition.cnn.com/"
+  }
+}
