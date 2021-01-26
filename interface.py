@@ -16,7 +16,7 @@ def run(args):
 
     if args == 2:
 
-        os.system('python sendnewsV2.py')
+        os.system('python testCode.py')
         # my_label2.config(text="Sending News on Whatsapp")
 
     if args == 3:

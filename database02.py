@@ -52,6 +52,9 @@ try:
     duplicate_query3 = 'delete from dailystar b1 using dailystar b2 where b1.ds_id < b2.ds_id and b1.ds_title = b2.ds_title '
     cursor.execute (duplicate_query3)
 
+    duplicate_query4 = 'delete from prothomalo b1 using prothomalo b2 where b1.pa_id < b2.pa_id and b1.pa_title = b2.pa_title '
+    cursor.execute (duplicate_query4)
+
 
 
 

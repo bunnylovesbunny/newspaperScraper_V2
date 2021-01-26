@@ -2,6 +2,10 @@ import psycopg2
 import json
 from datetime import datetime
 from psycopg2 import Error
+import requests
+from bs4 import BeautifulSoup
+import urllib3
+import re
 
 try:
     # Connect to an existing database
@@ -11,6 +15,7 @@ try:
                                   port="5432",
                                   database="postgres")
     cursor = connection.cursor()
+    connection.autocommit= True
 
     with open ('scraped_english_articles.json') as access_json:
         read_content = json.load (access_json)
@@ -85,18 +90,87 @@ try:
             dl = l[0]
             dp = l[1]
             now = datetime.now()
-            current_time = now.strftime("%H:%M:%S")
-            current_date = now.date()
-            qq = """ INSERT INTO dailystar (ds_date, ds_published, ds_title , ds_link) VALUES (%s , %s, %s, %s)"""
-            tu = (current_date, dp, dt, dl)
-            cursor.execute(qq,tu)
+            # current_time = now.strftime("%H:%M:%S")
+            # current_date = now.date()
+
+            tits = now.strftime ( "%H:%M:%S" )
+
+            current_time = tits [ 0:5 ]
+            current_date = now.date ( )
+            # qq = """ INSERT INTO dailystar (ds_date, ds_published, ds_title , ds_link) VALUES (%s , %s, %s, %s)"""
+            # tu = (current_date, dp, dt, dl)
+            # cursor.execute(qq,tu)
+
+            qq = """ INSERT INTO testtable (tt_date, tt_time, tt_published, tt_title , tt_link) VALUES (%s ,%s, %s, %s, %s)"""
+            tu = (current_date , current_time, dp , dt , dl)
+            cursor.execute ( qq , tu )
+
+##########################prothom alo####################
+            url = "https://prod-qt-images.s3.amazonaws.com/production/prothomalo-bangla/feed.xml"
+            resp = requests.get (url , headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'})
+
+            soup = BeautifulSoup (resp.content , features="xml")
+            entrys = soup.findAll ("entry")
+
+            for i in range (20):
+                entry = entrys [ i ]
+                title = entry.title.text
+                summary = entry.summary.text
+                ss = entry.link [ 'href' ]
+                publish = entry.published.text
+                category = entry.category [ 'term' ]
+
+                if (
+                        category == "ক্রিকেট" or category == "fun" or category == "বলিউড" or category == "টেলিভিশন" or category == "খেলা" or category == "নিয়োগ" or category == "উচ্চশিক্ষা"
+                        or category == "টেনিস" or category == "অন্য খেলা" or category == "লাইভ স্কোর" or category == "ফুটবল" or category == "সাক্ষাৎকার"
+                        or category == "লাইফস্টাইল" or category == "ফ্যাশন" or category == "স্টাইল" or category == "ফুটবল" or category == "রূপচর্চা" or category == "গৃহসজ্জা" or category == "রসনা" or category == "কেনাকাটা"
+                        or category == "বিনোদন" or category == "ঢালিউড" or category == "আলাপন" or category == "নাটক" or category == "গান" or category == "হলিউড"
+                        or category == "kishoralo" or category == "golpo" or category == "প্র স্বাস্থ্য"
+                ):
+                    continue
+                else:
+                    result = "Title: " + title + \
+                             "\nSummary: " + summary \
+                             + "\nLink: " + ss \
+                             + "\nPublished: " + publish \
+                             + "\nCategory: " + category + "\n"
 
 
+                    # print(result)
+                    now = datetime.now ()
 
+                    now = datetime.now ()
 
+                    tits = now.strftime("%H:%M:%S")
 
+                    current_time = tits[0:5]
+                    current_date = now.date ()
 
+                    qq = """ INSERT INTO prothomalo (pa_date, pa_published, pa_title , pa_link) VALUES (%s , %s, %s, %s)"""
+                    tu = (current_date , publish , title , ss)
+                    cursor.execute (qq , tu)
 
+                    # current_time = now.strftime ("%H:%M:%S")
+                    # l = current_time.split (':')
+                    #
+                    # current_hour = l [ 0 ]
+                    # current_min = l [ 1 ]
+            #
+            # for i in range (6):
+            #     entry = entrys [ i ]
+            #     title = entry.title.text
+            #     summary = entry.summary.text
+            #     ss = entry.link [ 'href' ]
+            #     publish = entry.published.text
+            #
+            #     result = "Title: " + title + \
+            #              "\nSummary: " + summary \
+            #              + "\nLink: " + ss \
+            #              + "\nPublished: " + publish + "\n"
+
+                # print (result)
+                #
 
     # # Create a cursor to perform database operations
     # cursor = connection.cursor()
