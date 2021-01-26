@@ -51,7 +51,7 @@ import json
 #         current_hour = l [ 0 ]
 #         current_min = l [ 1 ]
 #         print ( "Your message will be deliverd @ " , current_hour , " : " , int ( current_min ) + 3 )
-#         # pywhatkit.sendwhatmsg ( "+8801866690414" , listToStr , int ( current_hour ) , (int ( current_min ) + 3) )
+#         # pywhatkit.sendwhatmsg ( "" , listToStr , int ( current_hour ) , (int ( current_min ) + 3) )
 #
 #         # print ( "going to sleep for " , (1.1 * 60) , " sec\n" )
 #         # time.sleep ( 1.1 * 60 )
@@ -61,7 +61,7 @@ import json
 # #     article_list = read_content.get('newspapers').get(newspaper).get('articles')
 # #     sendnews()
 
-phone_number = ["+8801866690414","+8801777701716"]
+phone_number = [""]
 
 
 def sendnews():
@@ -90,7 +90,7 @@ def sendnews():
             current_min = l [ 1 ]
             print ("Your message will be deliverd @ " , current_hour , " : " , int (current_min) + 3)
             print(result)
-            pywhatkit.sendwhatmsg('+8801986885184',result,int(current_hour),int(current_min)+3 )
+            pywhatkit.sendwhatmsg('',result,int(current_hour),int(current_min)+3 )
 
             # for i in phone_number:
             #     pywhatkit.sendwhatmsg(i,result, int(current_hour),int(current_min)+3)
