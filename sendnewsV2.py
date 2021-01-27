@@ -90,7 +90,7 @@ def sendnews():
             current_min = l [ 1 ]
             print ("Your message will be deliverd @ " , current_hour , " : " , int (current_min) + 3)
             print(result)
-            pywhatkit.sendwhatmsg('+8801986885184',result,int(current_hour),int(current_min)+3 )
+            pywhatkit.sendwhatmsg('+',result,int(current_hour),int(current_min)+3 )
 
             # for i in phone_number:
             #     pywhatkit.sendwhatmsg(i,result, int(current_hour),int(current_min)+3)

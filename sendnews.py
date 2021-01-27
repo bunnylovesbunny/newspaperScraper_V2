@@ -108,7 +108,7 @@ def sendnews():
             # myLabel02 = Label (root ,text=result)
             # myLabel02.pack ()
             # root.mainloop ()
-            pywhatkit.sendwhatmsg ('+8801866690414' , result , int (current_hour) , int (current_min) + 3)
+            pywhatkit.sendwhatmsg ('+' , result , int (current_hour) , int (current_min) + 3)
 
 
 

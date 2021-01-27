@@ -45,19 +45,20 @@ try:
     # q4 = 'create table prothomalo (pa_id serial , pa_date date, pa_published varchar(255), pa_title varchar(255), pa_link varchar(255), constraint pa_id_pk primary key (pa_id));'
     # cursor.execute(q4)
 
-    testCreate = 'create table sendbbc (sendbbc_id serial , sendbbc_date varchar(250), sendbbc_time time, sendbbc_published varchar(255), sendbbc_title varchar(255), sendbbc_link varchar(255), sendbbc_summary text, constraint sendbbc_id_pk primary key (sendbbc_id));'
-    cursor.execute ( testCreate )
-
-    testCreate = 'create table senddailystar (sendds_id serial , sendds_date varchar(250), sendds_time time, sendds_published varchar(255), sendds_title varchar(255), sendds_link varchar(255), sendds_summary text, constraint sendds_id_pk primary key (sendds_id));'
-    cursor.execute(testCreate)
-
-    testCreate = 'create table sendbanglatribune (senddt_id serial , senddt_date varchar(250), senddt_time time, senddt_published varchar(255), senddt_title varchar(255), senddt_link varchar(255), senddt_summary text,  constraint senddt_id_pk primary key (senddt_id));'
-    cursor.execute(testCreate)
-
-    testCreate = 'create table sendprothomalo (sendpa_id serial , sendpa_date varchar(250), sendpa_time time, sendpa_published varchar(255), sendpa_title varchar(255), sendpa_link varchar(255), sendpa_summary text,  constraint sendpa_id_pk primary key (sendpa_id));'
-    cursor.execute(testCreate)
-
-
+    # testCreate = 'create table sendbbc (sendbbc_id serial , sendbbc_date varchar(250), sendbbc_time time, sendbbc_published varchar(255), sendbbc_title varchar(255), sendbbc_link varchar(255), sendbbc_summary text, constraint sendbbc_id_pk primary key (sendbbc_id));'
+    # cursor.execute ( testCreate )
+    #
+    # testCreate = 'create table senddailystar (sendds_id serial , sendds_date varchar(250), sendds_time time, sendds_published varchar(255), sendds_title varchar(255), sendds_link varchar(255), sendds_summary text, constraint sendds_id_pk primary key (sendds_id));'
+    # cursor.execute(testCreate)
+    #
+    # testCreate = 'create table sendbanglatribune (senddt_id serial , senddt_date varchar(250), senddt_time time, senddt_published varchar(255), senddt_title varchar(255), senddt_link varchar(255), senddt_summary text,  constraint senddt_id_pk primary key (senddt_id));'
+    # cursor.execute(testCreate)
+    #
+    # testCreate = 'create table sendprothomalo (sendpa_id serial , sendpa_date varchar(250), sendpa_time time, sendpa_published varchar(255), sendpa_title varchar(255), sendpa_link varchar(255), sendpa_summary text,  constraint sendpa_id_pk primary key (sendpa_id));'
+    # cursor.execute(testCreate)
+    #
+    add_column = 'ALTER TABLE testtable ADD send_status varchar(50)'
+    cursor.execute(add_column)
 
     # q_alter = 'alter table dailystar alter column ds_time type varchar(50)'
     # cursor.execute (q_alter)

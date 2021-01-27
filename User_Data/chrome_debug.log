@@ -1,0 +1,10 @@
+[9156:512:0127/123210.703:ERROR:device_event_log_impl.cc(211)] [12:32:10.703] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[7912:9460:0127/123513.765:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[7912:9460:0127/123513.766:ERROR:cache_util.cc(140)] Unable to move cache folder E:\python_projects\newspaperScraper_V2\User_Data\ShaderCache\GPUCache to E:\python_projects\newspaperScraper_V2\User_Data\ShaderCache\old_GPUCache_000
+[7912:9460:0127/123513.766:ERROR:disk_cache.cc(184)] Unable to create cache
+[7912:9460:0127/123513.767:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+[12384:3808:0127/123718.559:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[12384:3808:0127/123718.560:ERROR:cache_util.cc(140)] Unable to move cache folder E:\python_projects\newspaperScraper_V2\User_Data\ShaderCache\GPUCache to E:\python_projects\newspaperScraper_V2\User_Data\ShaderCache\old_GPUCache_000
+[12384:3808:0127/123718.560:ERROR:disk_cache.cc(184)] Unable to create cache
+[12384:3808:0127/123718.561:ERROR:shader_disk_cache.cc(606)] Shader Cache Creation failed: -2
+[9156:512:0127/123823.815:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
